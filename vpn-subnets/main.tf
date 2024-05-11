@@ -5,12 +5,12 @@
   subnets = [
     {
       cidr_block = "10.0.1.0/24"
-      availability_zone = "us-east-1a"
+      availability_zone = data.available.availability_zones[0]
       name = "private-lamda-subnet1"
       public = false
     }, {
       cidr_block = "10.0.2.0/24"
-      availability_zone = "us-east-1b"
+      availability_zone = data.available.availability_zones[1]
       name = "private-lamda-subnet2"
       public = false
     }

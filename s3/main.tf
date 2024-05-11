@@ -12,9 +12,3 @@ module "s3-bucket" {
     enabled = false
   }
 }
-
-def hola()
-l
-l
-l
-l
