@@ -1,4 +1,9 @@
-resource "lambda_function_creator" {
+module "lambda_function_creator" {
+
+    source = "terraform-aws-modules/lambda/aws"
+    runtime = "python3.12"
+    attach_policy = true
+    policy = data.LabRole.arn
 
     for_each = {for lambda in var.lambda_function: lambda.function_name => lambda}
 
@@ -19,45 +24,26 @@ resource "lambda_function_creator" {
 
 
 
-/*data "aws_iam_policy_document" "assume_role" {
-  statement {
-    effect = "Allow"
+/*module "lambda_function" {
+  source = "terraform-aws-modules/lambda/aws"
 
-    principals {
-      type        = "Service"
-      identifiers = ["lambda.amazonaws.com"]
+  # ...omitted for brevity
+
+  allowed_triggers = {
+    Config = {
+      principal        = "config.amazonaws.com"
+      principal_org_id = "o-abcdefghij"
     }
-
-    actions = ["sts:AssumeRole"]
-  }
-}
-
-resource "aws_iam_role" "iam_for_lambda" {
-  name               = "iam_for_lambda"
-  assume_role_policy = data.aws_iam_policy_document.assume_role.json
-}
-
-data "archive_file" "lambda" {
-  type        = "zip"
-  source_file = "lambda.js"
-  output_path = "lambda_function_payload.zip"
-}
-
-resource "aws_lambda_function" "test_lambda" {
-  # If the file is not in the current working directory you will need to include a
-  # path.module in the filename.
-  filename      = "lambda_function_payload.zip"
-  function_name = "lambda_function_name"
-  role          = aws_iam_role.iam_for_lambda.arn
-  handler       = "index.test"
-
-  source_code_hash = data.archive_file.lambda.output_base64sha256
-
-  runtime = "nodejs18.x"
-
-  environment {
-    variables = {
-      foo = "bar"
+    APIGatewayAny = {
+      service    = "apigateway"
+      source_arn = "arn:aws:execute-api:eu-west-1:135367859851:aqnku8akd0/*/*/*"
+    },
+    APIGatewayDevPost = {
+      service    = "apigateway"
+      source_arn = "arn:aws:execute-api:eu-west-1:135367859851:aqnku8akd0/dev/POST/*"
+    },
+    OneRule = {
+      principal  = "events.amazonaws.com"
+      source_arn = "arn:aws:events:eu-west-1:135367859851:rule/RunDaily"
     }
-  }
-}
+  }}*/
