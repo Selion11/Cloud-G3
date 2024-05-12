@@ -15,3 +15,9 @@ resource "aws_s3_object" "vacunatorio_frontend"{
   bucket = var.bucket_name
   source = var.file_path
 }
+
+resource "aws_s3_object" "scripts.js"{
+  key = var.code
+  bucket = var.bucket_name
+  source = var.code_path
+}

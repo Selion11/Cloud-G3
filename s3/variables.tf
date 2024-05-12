@@ -8,12 +8,22 @@ variable "file_name"{
     default = "vacunas_front.html"
 }
 
+variable "code"{
+    type = string
+    defailt = "scripts.js"
+}
+
 variable "file_path"{
     type = string
-    default = "./index.html"
+    default = "../resources/index.html"
 }
 
 variable "visibility"{
     type = string
     default = "public-read"
+}
+
+variable "code_path"{
+    type = string
+    default = "../resources/scripts.js"
 }
