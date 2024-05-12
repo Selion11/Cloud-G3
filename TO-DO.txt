@@ -1,0 +1,13 @@
+MODULOS:
+1 Custom 
+1 Externo
+
+
+Usar variables y ouputs
+
+
+Usar 3 de las siguientes:
+For-each
+Count
+Lifecycle
+Depends-on

@@ -1,14 +1,17 @@
-module "s3-bucket" {
-  source  = "terraform-aws-modules/s3-bucket/aws"
-  version = "4.1.2"
-  
+resource "aws_s3_bucket" "vacunatorio_bucket" {
   bucket = var.bucket_name
-  acl   = "private"
+  acl    = "private"
+  tags = {
+    name = var.bucket_name
+  }
 
-  control_object_ownership = true
-  object_ownership         = "ObjectWriter"
-
-  versioning = {
+  versioning {
     enabled = false
   }
+}
+
+resource "aws_s3_object" "vacunatorio_frontend"{
+  key = var.file_name
+  bucket = var.bucket_name
+  source = var.file_path
 }
