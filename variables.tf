@@ -42,7 +42,6 @@ variable "code_path"{
 }
 
 
-
 #### LAMBDAS
 variable "lambda_names"{
     type = list(string)
@@ -58,9 +57,9 @@ variable "lambda_descriptions"{
 
 variable "lambda_paths"{
     type = list(string)
-    default = ["./resources/POST.py",
-                "./resources/GET.py",
-                "./resources/VERIFY.py"]
+    default = ["../resources/POST.py",
+                "../resources/GET.py",
+                "../resources/VERIFY.py"]
 }
 
 variable "handler"{
