@@ -1,19 +1,19 @@
 #### VPC AND SUBNETS
  module "vpc-create"{
   source = "./vpc"
-  vpc_cidr = var.vpc_cidr
-  vpc_name = var.vpc_name
+  vpc_cidr =var.vpc_cidr
+  vpc_name =var.vpc_name
   subnets = [
     {
-      cidr_block = "10.0.1.0/24"
-      availability_zone = data.available.availability_zones[0]
-      name = "private-lamda-subnet1"
-      public = false
+      cidr_block= "10.0.1.0/24"
+      availability_zone= data.aws_availability_zones.available.names[0]
+      name= "private-subnet1"
+      public= false
     }, {
-      cidr_block = "10.0.2.0/24"
-      availability_zone = data.available.availability_zones[1]
-      name = "private-lamda-subnet2"
-      public = false
+      cidr_block= "10.0.2.0/24"
+      availability_zone= data.aws_availability_zones.available.names[1]
+      name= "private-subnet2"
+      public =false
     }
     ]
  }

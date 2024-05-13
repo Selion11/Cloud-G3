@@ -3,7 +3,7 @@ variable "vpc_cidr"{
     default = "10.0.0.0/16"
 }
 
-variabel "vpc_name"{
+variable "vpc_name"{
     type = string
     default = "vacunatorio-VPC"
 }

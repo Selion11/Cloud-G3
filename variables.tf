@@ -23,7 +23,7 @@ variable "file_name"{
 
 variable "code"{
     type = string
-    defailt = "scripts.js"
+    default = "scripts.js"
 }
 
 variable "file_path"{

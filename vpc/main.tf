@@ -11,7 +11,6 @@ resource "aws_subnet" "vacunatorio_subnet" {
     vpc_id = aws_vpc.vacunatorio.id
     cidr_block = each.value.cidr_block
     availability_zone = each.value.availability_zone
-    public = each.value.public
     tags = {
         name = each.value.name
     }
