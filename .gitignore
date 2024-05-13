@@ -5,6 +5,7 @@
 
 # Ignore .terraform directory
 /*/.terraform/
+./terraform
 
 # Ignore any local override files
 override.tf
