@@ -15,4 +15,18 @@ variable "subnets"{
         name = string
         public = bool
     }))
+    
+    default = [
+    {
+      cidr_block= "10.0.1.0/24"
+      availability_zone= data.aws_availability_zones.available.names[0]
+      name= "private-subnet1"
+      public= false
+    }, {
+      cidr_block= "10.0.2.0/24"
+      availability_zone= data.aws_availability_zones.available.names[1]
+      name= "private-subnet2"
+      public =false
+    }
+    ]
 }
