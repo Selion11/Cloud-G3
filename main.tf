@@ -17,7 +17,7 @@
     }
     ]
  }
-
+#hola
 #### S3 BUCKET
 /*
 resource "aws_s3_bucket" "vacunatorio_bucket" {
