@@ -1,70 +1,69 @@
-#### VPC AND SUBNETS
-variable "vpc_cidr"{
-    type = string
-    default = "10.0.0.0/16"
+variable "aws_region" {
+  description = "The AWS region to deploy resources"
+  default     = "us-east-1"
 }
 
-variable "vpc_name"{
-    type = string
-    default = "vacunatorio-VPC"
+variable "vpc_cidr" {
+  description = "The CIDR block for the VPC"
+  default     = "10.0.0.0/16"
 }
 
-
-#### S3 BUCKET
-variable "bucket_name"{
-    type = string
-    default = "vacunatorio-bucket"
+variable "subnet_1_cidr" {
+  description = "The CIDR block for the first private subnet"
+  default     = "10.0.1.0/24"
 }
 
-variable "file_name"{
-    type = string
-    default = "vacunas_front.html"
+variable "subnet_2_cidr" {
+  description = "The CIDR block for the second private subnet"
+  default     = "10.0.2.0/24"
 }
 
-variable "code"{
-    type = string
-    default = "scripts.js"
+variable "availability_zone_1" {
+  description = "The availability zone for the first private subnet"
+  default     = "us-east-1a"
 }
 
-variable "file_path"{
-    type = string
-    default = "../resources/index.html"
+variable "availability_zone_2" {
+  description = "The availability zone for the second private subnet"
+  default     = "us-east-1b"
 }
 
-variable "visibility"{
-    type = string
-    default = "public-read"
+variable "dynamodb_table_name" {
+  description = "The name of the DynamoDB table"
+  default     = "Vacunas"
 }
 
-variable "code_path"{
-    type = string
-    default = "../resources/scripts.js"
+variable "s3_bucket_name" {
+  description = "The name of the S3 bucket"
+  default     = "s3-vacunatorio-terraform"
 }
 
-
-#### LAMBDAS
-variable "lambda_names"{
-    type = list(string)
-    default = ["Post", "Get","Verify"]
+variable "lambda_post_filename" {
+  description = "The filename of the zip file for the POST Lambda function"
+  default     = "lambda_post.zip"
 }
 
-variable "lambda_descriptions"{
-    type = list(string)
-    default = [ "Postear una vacuna a la database",
-                "Obtener los datos de un usuario o tipo de vacuna almacenado en la database",
-                "Verificar si los datos ingresados por el usuario son correctos"]
+variable "lambda_get_filename" {
+  description = "The filename of the zip file for the GET Lambda function"
+  default     = "lambda_get.zip"
 }
 
-variable "lambda_paths"{
-    type = list(string)
-    default = ["../resources/POST.py",
-                "../resources/GET.py",
-                "../resources/VERIFY.py"]
+variable "lambda_role_name" {
+  description = "The name of the IAM role for Lambda functions"
+  default     = "LabRole"
 }
 
-variable "handler"{
-    type = list(string)
-    default = ["POST.lambda_handler",
-                "GET.lambda_handler",
-                "VERIFY.lambda_handler"]
+variable "read_capacity" {
+  description = "Read capacity units for the DynamoDB table"
+  default     = 5
+}
+
+variable "write_capacity" {
+  description = "Write capacity units for the DynamoDB table"
+  default     = 5
+}
+
+variable "api_name" {
+  description = "The name of the API Gateway"
+  default     = "VacunasAPI"
 }
