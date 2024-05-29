@@ -1,5 +1,4 @@
-// Add your API endpoint here
-var API_ENDPOINT = "https://z12nby302g.execute-api.us-east-1.amazonaws.com/prod";
+var API_ENDPOINT = "${invoke_url}/vacunas";
 
 // AJAX POST request to save vacuna data
 document.getElementById("savevacuna").onclick = function(){
@@ -12,11 +11,6 @@ document.getElementById("savevacuna").onclick = function(){
         url: API_ENDPOINT,
         type: 'POST',
         data:  JSON.stringify(inputData),
-        headers: {
-            'Access-Control-Allow-Origin': "*",
-            'Access-Control-Allow-Credentials': "true"
-
-        },
         contentType: 'application/json; charset=utf-8',
         success: function (response) {
             document.getElementById("vacunaSaved").innerHTML = "Se salvo la vacuna!";

@@ -5,7 +5,7 @@ def lambda_handler(event, context):
     # Initialize a DynamoDB resource object for the specified region
     dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
 
-    table = dynamodb.Table('Vacunas')
+    table = dynamodb.Table('Tabla_Vacunas')
 
     # Scan the table to retrieve all items
     response = table.scan()

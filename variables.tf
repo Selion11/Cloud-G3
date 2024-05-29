@@ -28,9 +28,11 @@ variable "availability_zone_2" {
   default     = "us-east-1b"
 }
 
+
+
 variable "dynamodb_table_name" {
   description = "The name of the DynamoDB table"
-  default     = "Vacunas"
+  default     = "Tabla_Vacunas"
 }
 
 variable "s3_bucket_name" {
