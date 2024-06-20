@@ -29,7 +29,6 @@ variable "availability_zone_2" {
 }
 
 
-
 variable "dynamodb_table_name" {
   description = "The name of the DynamoDB table"
   default     = "Tabla_Vacunas"
