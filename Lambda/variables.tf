@@ -12,6 +12,7 @@ variable "lambda_list"{
         arn = string
         function_name = string
         sec_group_id = string
+        name = string
     }))
 }
 
