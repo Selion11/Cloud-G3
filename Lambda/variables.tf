@@ -1,24 +1,41 @@
 variable "lambda_list"{
     type = list(object({
-        f_type = string
         function_name = string
         handler = string
-        source_path = string
         source_dir = string
         output_path = string
         filename = string
-        runtime = string
-        timeout = number
-        arn = string
-        function_name = string
-        sec_group_id = string
-        name = string
     }))
 }
+variable "f_type"{
+    type = string
+}
 
-variable "subnet_ids" {
-    type = list(object({
-        id = string
-    })
-    description = "The IDs to place lambdas in"
+variable "arn"{
+    type = string
+}
+
+variable "runtime"{
+    type = string
+    default = "python3.12"
+}
+
+variable "timeout"{
+    type = number
+    default = 10
+}
+
+variable "table_name"{
+    type = string
+}
+
+variable "sub_id_1"{
+    type = string
+}
+variable "sub_id_2"{
+    type = string
+}
+
+variable "sec_group_id"{
+    type = string
 }
